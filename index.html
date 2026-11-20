@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartik Waghmare Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+:root{
+  --bg:#F3F7FF; --card:#FFFFFF; --ink:#0B1B3F; --muted:#4F5F80; --body:#2A3A5E;
+  --line:#DCE5F5; --line2:#CBD7EE; --tint:#E4EDFF; --chip:#EAF0FC; --track:#E1E9F8;
+  --accent:#2563EB; --gold:#FFB703; --green:#2F7D4F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0}
+.mono{font-family:'JetBrains Mono',monospace}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h2{font-weight:700;font-size:clamp(30px,4vw,42px);letter-spacing:-.02em;line-height:1.1}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;min-height:50px;padding:0 28px;border-radius:10px;font-weight:600;font-size:16px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{color:#fff;filter:brightness(1.08)}
+.btn-light{background:#fff;border-color:var(--line2)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{color:var(--ink);filter:brightness(1.05)}
+
+/* nav */
+nav{display:flex;flex-wrap:wrap;gap:8px 32px;align-items:center;justify-content:space-between;margin-top:20px;padding:10px 28px;background:var(--ink);color:#fff;border-radius:16px;box-shadow:0 10px 28px rgba(11,27,63,.18)}
+nav a:hover{color:var(--gold)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:-.01em}
+.logo span{color:var(--gold)}
+.links{display:flex;flex-wrap:wrap;gap:0 28px;font-size:15px;font-weight:500;color:#D5DFF5}
+.links a{padding:10px 0}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding:64px 0 96px}
+.hero-text{flex:3 1 460px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.badge{align-self:flex-start;padding:8px 14px;border-radius:999px;background:var(--tint);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500}
+.hero h1{font-weight:700;font-size:clamp(40px,6.4vw,76px);line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.hero p{margin:0;font-size:19px;line-height:1.65;color:var(--muted);max-width:54ch}
+.cta{display:flex;flex-wrap:wrap;gap:14px;padding-top:6px}
+.profile-wrap{flex:2 1 280px;min-width:0;display:flex;justify-content:center}
+.profile{width:100%;max-width:340px;display:flex;flex-direction:column;align-items:center;gap:22px;padding:36px 28px;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 18px 40px rgba(20,50,120,.08)}
+.avatar{width:176px;height:176px;border-radius:50%;overflow:hidden;background:var(--ink);box-shadow:0 0 0 6px var(--gold)}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.profile h3{font-weight:700;font-size:22px;text-align:center}
+.profile .role{font-size:15px;color:var(--muted);text-align:center;margin-top:6px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.pills span{padding:6px 12px;border-radius:999px;background:var(--tint);color:var(--accent)}
+
+/* about */
+.split{display:flex;flex-wrap:wrap;gap:32px 64px}
+.split-head{flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.split-body{flex:3 1 480px;min-width:0}
+.about-body{display:flex;flex-wrap:wrap;gap:36px}
+.about-text{flex:2 1 320px;min-width:0;display:flex;flex-direction:column;gap:18px;font-size:18px;line-height:1.7;color:var(--body)}
+.about-text p{margin:0}
+.facts{flex:1 1 240px;min-width:0;padding:8px 24px;background:var(--card);border:1px solid var(--line);border-radius:16px;font-size:15px}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts span:first-child{color:var(--muted)}
+.facts span:last-child{font-weight:500}
+
+/* skills */
+.skill-card{display:flex;flex-direction:column;gap:26px;padding:32px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.skill-top{display:flex;justify-content:space-between;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;margin-bottom:10px}
+.skill-top span:last-child{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:13px;color:var(--muted)}
+.bar{height:8px;border-radius:4px;background:var(--track)}
+.bar i{display:block;height:8px;border-radius:4px;background:var(--accent)}
+
+/* projects */
+.section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+.grid{display:flex;flex-wrap:wrap;gap:24px}
+.project{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px;padding:20px 20px 28px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(20,50,120,.06)}
+.project .info{padding:0 8px;display:flex;flex-direction:column;gap:12px}
+.project h3{font-weight:700;font-size:22px}
+.project p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.tags span{padding:5px 10px;border-radius:6px;background:var(--chip);color:var(--body)}
+.preview{height:190px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center}
+.screen{width:86%;height:82%;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(20,50,120,.15);overflow:hidden;display:flex;flex-direction:column}
+.screen .top{display:flex;justify-content:space-between;align-items:center;padding:0 10px;height:26px;background:var(--ink);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px}
+.screen .top.green{background:var(--green)}
+.screen .cards{display:flex;gap:8px;padding:10px;flex:1}
+.screen .c{flex:1;display:flex;flex-direction:column;gap:6px}
+.screen .c i:nth-child(1){flex:1;border-radius:5px;background:var(--tint)}
+.screen .c i:nth-child(2){height:5px;width:65%;border-radius:3px;background:var(--line2)}
+.screen .c i:nth-child(3){height:12px;border-radius:4px;background:var(--gold)}
+.screen.agri .c i:nth-child(1){background:#DDF0E3}
+.screen.agri .c i:nth-child(3){background:var(--green)}
+.screen .rows{display:flex;flex-direction:column;gap:8px;padding:10px;flex:1;justify-content:center}
+.screen .stars{color:var(--gold);font-size:14px;letter-spacing:3px;line-height:1}
+.screen .rows .bar{height:7px}
+.screen .rows .bar i{height:7px}
+
+/* education */
+.edu{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.edu .years{align-self:flex-start;padding:5px 12px;border-radius:999px;background:var(--tint);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px}
+.edu h3{font-weight:700;font-size:22px}
+.edu .course{font-size:16px;font-weight:500}
+.edu .where{font-size:15px;color:var(--muted)}
+
+/* contact */
+.contact{margin:40px 0 72px;padding:56px 40px;background:var(--ink);color:#fff;border-radius:24px;display:flex;flex-wrap:wrap;gap:40px 56px}
+.contact-text{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.contact h2{font-size:clamp(32px,5vw,56px);line-height:1.05;letter-spacing:-.03em;max-width:14ch;text-wrap:balance}
+.contact p{margin:0;font-size:18px;line-height:1.6;opacity:.92;max-width:44ch}
+.mail{font-family:'JetBrains Mono',monospace;font-size:clamp(15px,2vw,20px);font-weight:500;color:var(--gold);word-break:break-all}
+form{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px}
+label{font-size:14px;font-weight:500;display:flex;flex-direction:column;gap:8px}
+input,textarea{width:100%;font:inherit;font-size:16px;padding:14px 16px;border-radius:10px;border:1px solid #2E4272;background:#13265A;color:#fff}
+input::placeholder,textarea::placeholder{color:#9FB0D6}
+textarea{min-height:140px;resize:vertical}
+form .btn{align-self:flex-start}
+
+/* social + footer */
+.social{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;padding:32px 0;border-top:1px solid var(--line)}
+.social h3{font-weight:700;font-size:20px}
+.icons{display:flex;flex-wrap:wrap;gap:12px}
+.icons a{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#fff;border:1px solid var(--line2);font-size:22px;transition:transform .15s,background .15s,color .15s}
+.icons a:hover{transform:translateY(-3px);background:var(--accent);color:#fff;border-color:var(--accent)}
+footer{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding:0 0 48px;font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.icons a{transition:none}}
+@media (max-width:600px){.contact{padding:36px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <a href="#top" class="logo">Kartik<span>.</span></a>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-text">
+    <div class="badge">Available for freelance work</div>
+    <h1>Hi, I'm Kartik. I build websites people enjoy using.</h1>
+    <p>Full-stack web developer from Nanded, Maharashtra. I build clean, responsive interfaces and the back end that powers them.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-light" href="#contact">Hire me</a>
+    </div>
+  </div>
+  <div class="profile-wrap">
+    <div class="profile">
+      <div class="avatar"><img src="photo.png" alt="Kartik Waghmare"></div>
+      <div>
+        <h3>Kartik Waghmare</h3>
+        <div class="role">Full-stack web developer</div>
+      </div>
+      <div class="pills"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="split">
+    <div class="split-head">
+      <div class="eyebrow">About</div>
+      <h2>A little about me</h2>
+    </div>
+    <div class="split-body about-body">
+      <div class="about-text">
+        <p>I'm a passionate full-stack web developer who loves creating beautiful, functional websites, from the interface to the back end.</p>
+        <p>I enjoy turning ideas into reality through code, and I keep every page responsive so it works well on phones and desktops.</p>
+      </div>
+      <div class="facts">
+        <div><span>Name</span><span>Kartik Waghmare</span></div>
+        <div><span>From</span><span>Nanded, Maharashtra</span></div>
+        <div><span>Role</span><span>Full-stack developer</span></div>
+        <div><span>Freelance</span><span>Available</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="split">
+    <div class="split-head">
+      <div class="eyebrow">Skills</div>
+      <h2>What I work with</h2>
+    </div>
+    <div class="split-body skill-card">
+      <div><div class="skill-top"><span>HTML</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+      <div><div class="skill-top"><span>CSS</span><span>85%</span></div><div class="bar"><i style="width:85%"></i></div></div>
+      <div><div class="skill-top"><span>JavaScript</span><span>75%</span></div><div class="bar"><i style="width:75%"></i></div></div>
+      <div><div class="skill-top"><span>Bootstrap</span><span>80%</span></div><div class="bar"><i style="width:80%"></i></div></div>
+      <div><div class="skill-top"><span>Java</span><span>95%</span></div><div class="bar"><i style="width:95%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <div class="eyebrow">Projects</div>
+    <h2>Things I've built</h2>
+  </div>
+  <div class="grid">
+
+    <article class="project">
+      <div class="preview" aria-hidden="true">
+        <div class="screen agri">
+          <div class="top green"><span>AgriLink</span><span>Sell · Buy</span></div>
+          <div class="cards"><div class="c"><i></i><i></i><i></i></div><div class="c"><i></i><i></i><i></i></div><div class="c"><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+      <div class="info">
+        <h3>AgriLink</h3>
+        <p>A web application where farmers can sell their crops and buyers can buy them directly.</p>
+        <div class="tags"><span>Marketplace</span><span>Farmers</span><span>Buyers</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="preview" aria-hidden="true">
+        <div class="screen">
+          <div class="top"><span>Shop</span><span>Cart</span></div>
+          <div class="cards"><div class="c"><i></i><i></i><i></i></div><div class="c"><i></i><i></i><i></i></div><div class="c"><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+      <div class="info">
+        <h3>E-commerce Web Application</h3>
+        <p>A full e-commerce web application for browsing and buying products online.</p>
+        <div class="tags"><span>Web app</span><span>Online shopping</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="preview" aria-hidden="true">
+        <div class="screen">
+          <div class="top"><span>Feedback</span><span>Analysis</span></div>
+          <div class="rows">
+            <div class="stars">★★★★★</div>
+            <div class="bar"><i style="width:90%"></i></div>
+            <div class="bar"><i style="width:70%"></i></div>
+            <div class="bar"><i style="width:55%"></i></div>
+            <div class="bar"><i style="width:80%"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <h3>Student Feedback Analysis System</h3>
+        <p>A system where students give feedback to their teachers, with the responses analysed.</p>
+        <div class="tags"><span>Web app</span><span>Feedback</span><span>Analysis</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head">
+    <div class="eyebrow">Education</div>
+    <h2>Where I studied</h2>
+  </div>
+  <div class="grid">
+    <div class="edu"><div class="years">2020 – 2023</div><h3>Bachelor's Degree</h3><div class="course">B.Sc. (Computer Technology)</div><div class="where">Savitribai Phule Pune University, Pune</div></div>
+    <div class="edu"><div class="years">2023 – 2025</div><h3>Master's Degree</h3><div class="course">M.Sc. (Computer Technology)</div><div class="where">Savitribai Phule Pune University, Pune</div></div>
+    <div class="edu"><div class="years">2024 – 2027</div><h3>Diploma</h3><div class="course">Computer Technology</div><div class="where">Government Polytechnic, Brahmapuri</div></div>
+  </div>
+</section>
+
+<div id="contact" class="contact">
+  <div class="contact-text">
+    <h2>Have a project in mind?</h2>
+    <p>I'm available for freelance full-stack web work. Send me a message and I'll get back to you.</p>
+    <div class="mail">kartikw607@gmail.com</div>
+  </div>
+
+  <!--
+    HOW THE FORM SENDS EMAIL (free, no server needed):
+    1. Go to https://formspree.io and sign up with kartikw607@gmail.com.
+    2. Create a new form. Formspree gives you a link like https://formspree.io/f/abcdwxyz
+    3. Replace YOUR_FORM_ID below with that code (the part after /f/).
+    Messages sent from this form then arrive in your Gmail inbox.
+  -->
+  <form action="https://formspree.io/f/mqpqdpkv" method="POST">
+    <label>Your name<input type="text" name="name" placeholder="Your name" required autocomplete="name"></label>
+    <label>Your email<input type="email" name="email" placeholder="you@example.com" required autocomplete="email"></label>
+    <label>Message<textarea name="message" placeholder="Tell me about your project" required></textarea></label>
+    <button type="submit" class="btn btn-gold">Send message</button>
+  </form>
+</div>
+
+<div class="social">
+  <h3>Find me on social media</h3>
+  <!-- Replace each # with your own profile link. -->
+  <div class="icons">
+    <a href="#" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" aria-label="X" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Kartik Waghmare</span>
+  <a href="#top">Back to top</a>
+</footer>
+
+</div>
+</body>
+</html>
